@@ -40,13 +40,23 @@ body {
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 5px;
-    background: rgb(102, 223, 46);
 
-    transition: background-color 0.2s;
+    color:white;
+
+    background-image: url("./res/galaxy-bg.jpg");
+    background-position: center;
+    background-size: 100%;
+
+    transition: background-size 0.3s;
+    
+    /* background: rgb(102, 223, 46); */
+
+    /* transition: background-color 0.2s; */
 }
 
 #submit-download:hover {
-    background: rgb(80,189,29);
+    background-size: 110%;
+    /* background: rgb(80,189,29); */
 }
 
 
