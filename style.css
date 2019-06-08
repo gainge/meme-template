@@ -73,6 +73,7 @@ body {
 
 /* Control/Widget or w/e */
 #generator-container {
+    background: azure;
     display: grid;
     grid-template-columns: 1fr;
 
@@ -102,6 +103,26 @@ body {
 .button-structural:hover {
     background: rgb(230, 230, 230);
     box-shadow: 0rem 0.2rem 0.1rem #cacaca;
+}
+
+
+
+.galaxy-panel {
+    display: grid;
+    grid-template-columns: 1fr 3fr 3fr;
+}
+
+
+.caption {
+    width: 100%;
+    height: 12rem;
+
+    font-size: 58px;
+
+    border: solid 0.3rem black;
+    border-left: none;
+
+    resize: none;
 }
 
 
