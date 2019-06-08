@@ -109,20 +109,102 @@ body {
 
 .galaxy-panel {
     display: grid;
-    grid-template-columns: 1fr 3fr 3fr;
+    grid-template-columns: 1fr 3fr 3fr 1fr;
 }
 
 
 .caption {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     width: 100%;
-    height: 12rem;
+    height: 10.99rem;
 
-    font-size: 58px;
+    box-sizing: border-box;
+
+    padding-left: 0.5rem;
+    padding-top: 0.3rem;
+    padding-right: 0.2rem;
+
+    font-size: 40px;
 
     border: solid 0.3rem black;
     border-left: none;
 
     resize: none;
+}
+
+
+.galaxy-image {
+    background: #ff00ff;
+    border: solid 0.3rem black;
+    border-right: none;
+    border-left: none;
+    
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: 100%;
+
+    margin-top: 0.06rem;
+    margin-bottom: 0.06rem;
+
+}
+
+
+.galaxy1 {
+    background-image: url("./res/minds/galaxy1.jpg");
+}
+
+.galaxy2 {
+    background-image: url("./res/minds/galaxy2.jpg");
+}
+
+.galaxy3 {
+    background-image: url("./res/minds/galaxy3.jpg");
+}
+
+.galaxy4 {
+    background-image: url("./res/minds/galaxy4.jpg");
+}
+
+.galaxy5 {
+    background-image: url("./res/minds/galaxy5.jpg");
+}
+
+.galaxy6 {
+    background-image: url("./res/minds/galaxy6.jpg");
+}
+.galaxy7 {
+    background-image: url("./res/minds/galaxy7.jpg");
+}
+.galaxy8 {
+    background-image: url("./res/minds/galaxy8.jpg");
+}
+.galaxy9 {
+    background-image: url("./res/minds/galaxy9.jpg");
+}
+.galaxy10 {
+    background-image: url("./res/minds/galaxy10.jpg");
+}
+.galaxy11 {
+    background-image: url("./res/minds/galaxy11.jpg");
+}
+.galaxy12 {
+    background-image: url("./res/minds/galaxy12.jpg");
+    background-size: 105%;
+}
+.galaxy13 {
+    background-image: url("./res/minds/galaxy13.jpg");
+}
+.galaxy14 {
+    background-image: url("./res/minds/galaxy14.jpg");
+}
+.galaxy15 {
+    background-image: url("./res/minds/galaxy15.jpg");
+}
+.galaxy16 {
+    background-image: url("./res/minds/galaxy16.jpg");
+}
+.galaxy17 {
+    background-image: url("./res/minds/galaxy17.jpg");
 }
 
 

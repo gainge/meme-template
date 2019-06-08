@@ -3,7 +3,7 @@
 const ADD = "+";
 const DELETE = "-";
 
-const DEFAULT_FONT_SIZE = "58px";
+const DEFAULT_FONT_SIZE = "40px";
 
 
 
