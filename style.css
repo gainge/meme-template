@@ -1,7 +1,7 @@
 
 
 body {
-    padding: 0rem 3rem 1rem 3rem;
+    padding: 0rem 9rem 1rem 9rem;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 }
@@ -66,8 +66,43 @@ body {
 
 #main-content {
     overflow-y: scroll;
+    padding: 3rem 0rem;
 }
 
+
+
+/* Control/Widget or w/e */
+#generator-container {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.button-structural {
+    background: #eee;
+    border: none;
+
+    height: 3rem;
+    width: 3rem;
+
+    padding-bottom: 0.3rem;
+
+    border-radius: 50%;
+    font-size: 1.7rem;
+    text-align: center;
+    vertical-align: middle;
+
+    transition: background-color 0.2s;
+    transition: box-shadow 0.2s;
+
+    box-shadow: 0rem 0.2rem 0.2rem #cacaca;
+}
+
+.button-structural:hover {
+    background: rgb(230, 230, 230);
+    box-shadow: 0rem 0.2rem 0.1rem #cacaca;
+}
 
 
 
