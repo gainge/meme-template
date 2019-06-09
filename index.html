@@ -23,7 +23,7 @@
         <div id="generator-container">
 
             <div>
-                <button class="button-structural" id="add-0">+</button>
+                <button class="button-structural" id="add-0" onclick="addPanel(0)">+</button>
             </div>
 
             <div id="meme-parent">
@@ -48,16 +48,16 @@
                             <!-- Holds the meme caption -->
                             <textarea class="caption" name="caption1" id="caption1"></textarea>
                         </div>
-                        <div class="galaxy-image galaxy17">
+                        <div class="galaxy-image galaxy17" id="image1">
                             <!-- Just the image I guess lol -->
                         </div>
                     </div>
                     <div class="galaxy-panel">
                         <div class="caption-container">
                             <!-- Holds the meme caption -->
-                            <textarea class="caption" name="caption1" id="caption1"></textarea>
+                            <textarea class="caption" name="caption2" id="caption2"></textarea>
                         </div>
-                        <div class="galaxy-image galaxy17">
+                        <div class="galaxy-image galaxy17" id="image2">
                             <!-- Just the image I guess lol -->
                         </div>
                     </div>
@@ -74,6 +74,7 @@
     <div class="footer">
         <p>Github or something</p>
     </div>
+    <div id="temp"></div>
 </body>
 
 <script src="./script.js"></script>
