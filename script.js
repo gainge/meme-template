@@ -44,26 +44,9 @@ function fontAdjustmentCurry(el) {
   }
 }
 
-document.getElementById("caption1").style.fontSize = DEFAULT_FONT_SIZE;
 
-document.getElementById("caption1").oninput = () => {
-  var el = document.getElementById("caption1");
-
-  if (isScrolling(el)) {
-    removeScrolling(el);
-  } else {
-    tryFontGrowth(el);
-  }
-}
-
-
-
-// Variables
-var numPanels = 2;  // TODO: don't leave this as 2 lol
-
-
-
-
+document.getElementById("control-container").innerHTML = "";
+document.getElementById("meme").innerHTML = "";
 
 
 
@@ -76,11 +59,13 @@ function addPanel(position) {
     return;
   }
 
+  console.log("Creating panel at pos: " + position);
+
   // Otherwise, we can just add some ish
 
   // Add the buttons
   var buttonPanel = createButtonPanel(position);
-  addChildAtPosition(buttonPanel, position, BUTTON_PARENT_ID);
+  addChildAtPosition(buttonPanel, getNumPanels(), BUTTON_PARENT_ID);
 
   // Add the meme panel
   var memePanel = createMemePanel(position);
@@ -94,7 +79,22 @@ function addPanel(position) {
 
 // Event Handlers
 function deletePanel(position) {
-  console.log("Bobby!");
+  var index = position - 1;
+
+  if (index < 0 || index >= getNumPanels()) {
+    alert("Invalid deltion attempted!");
+    return;
+  }
+
+  // Delete the last button control panel
+  var buttonParent = document.getElementById(BUTTON_PARENT_ID);
+  var lastChild = buttonParent.children[getNumPanels() - 1];
+  buttonParent.removeChild(lastChild);
+
+  // Delete the specified meme panel
+  var memeParent = document.getElementById(MEME_PARENT_ID);
+  var nthChild = memeParent.children[index];
+  memeParent.removeChild(nthChild);
 }
 
 
@@ -203,7 +203,8 @@ function createButton(type, index) {
   button.id = id;
   button.innerText = type;
   // Wire up the click handler, baby
-  button.onclick = () => clickCallback(index);
+  var currentNumPanels = getNumPanels();
+  button.onclick = () => clickCallback(currentNumPanels + 1);
 
   // Wrap the button up in a div
   var buttonContainer = document.createElement("div");
