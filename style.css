@@ -1,5 +1,5 @@
 
-
+/* General Rules */
 body {
     padding: 0rem 9rem 1rem 9rem;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -14,7 +14,6 @@ body {
 }
 
 /* Header */
-
 #header-container {
     display: flex;
     flex-flow: row;
@@ -92,7 +91,7 @@ body {
 }
 
 
-/* Control/Widget or w/e */
+/* Control/Widgets or w/e */
 #generator-container {
     background: azure;
     display: grid;
@@ -165,7 +164,7 @@ body {
 }
 
 
-
+/* Meme Panel */
 .galaxy-panel {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -173,8 +172,6 @@ body {
     border: solid 0.2rem black;
     border-left: none;
     border-right: none;
-    /* margin-bottom: -0.8rem; */
-    /* margin-top: -1.6rem; */
 }
 
 .galaxy-panel > div {
@@ -221,63 +218,27 @@ body {
 }
 
 
-.galaxy1 {
-    background-image: url("./res/minds/galaxy1.jpg");
-}
-
-.galaxy2 {
-    background-image: url("./res/minds/galaxy2.jpg");
-}
-
-.galaxy3 {
-    background-image: url("./res/minds/galaxy3.jpg");
-}
-
-.galaxy4 {
-    background-image: url("./res/minds/galaxy4.jpg");
-}
-
-.galaxy5 {
-    background-image: url("./res/minds/galaxy5.jpg");
-}
-
-.galaxy6 {
-    background-image: url("./res/minds/galaxy6.jpg");
-}
-.galaxy7 {
-    background-image: url("./res/minds/galaxy7.jpg");
-}
-.galaxy8 {
-    background-image: url("./res/minds/galaxy8.jpg");
-}
-.galaxy9 {
-    background-image: url("./res/minds/galaxy9.jpg");
-}
-.galaxy10 {
-    background-image: url("./res/minds/galaxy10.jpg");
-}
-.galaxy11 {
-    background-image: url("./res/minds/galaxy11.jpg");
-}
+/* Images */
+.galaxy1 {background-image: url("./res/minds/galaxy1.jpg");}
+.galaxy2 {background-image: url("./res/minds/galaxy2.jpg");}
+.galaxy3 {background-image: url("./res/minds/galaxy3.jpg");}
+.galaxy4 {background-image: url("./res/minds/galaxy4.jpg");}
+.galaxy5 {background-image: url("./res/minds/galaxy5.jpg");}
+.galaxy6 {background-image: url("./res/minds/galaxy6.jpg");}
+.galaxy7 {background-image: url("./res/minds/galaxy7.jpg");}
+.galaxy8 {background-image: url("./res/minds/galaxy8.jpg");}
+.galaxy9 {background-image: url("./res/minds/galaxy9.jpg");}
+.galaxy10 {background-image: url("./res/minds/galaxy10.jpg");}
+.galaxy11 {background-image: url("./res/minds/galaxy11.jpg");}
 .galaxy12 {
     background-image: url("./res/minds/galaxy12.jpg");
     background-size: 105%;
 }
-.galaxy13 {
-    background-image: url("./res/minds/galaxy13.jpg");
-}
-.galaxy14 {
-    background-image: url("./res/minds/galaxy14.jpg");
-}
-.galaxy15 {
-    background-image: url("./res/minds/galaxy15.jpg");
-}
-.galaxy16 {
-    background-image: url("./res/minds/galaxy16.jpg");
-}
-.galaxy17 {
-    background-image: url("./res/minds/galaxy17.jpg");
-}
+.galaxy13 {background-image: url("./res/minds/galaxy13.jpg");}
+.galaxy14 {background-image: url("./res/minds/galaxy14.jpg");}
+.galaxy15 {background-image: url("./res/minds/galaxy15.jpg");}
+.galaxy16 {background-image: url("./res/minds/galaxy16.jpg");}
+.galaxy17 {background-image: url("./res/minds/galaxy17.jpg");}
 
 
 
