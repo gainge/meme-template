@@ -22,23 +22,47 @@
 
         <div id="generator-container">
 
-            <div class="button-container">
+            <div>
                 <button class="button-structural" id="add-0">+</button>
             </div>
 
-            <div id="meme">
-                <div class="galaxy-panel">
-                    <div id="button-container">
+            <div id="meme-parent">
+                <!-- Holds the buttons for adding/removing meme panels -->
+                <div id="control-container">
+                    <div class="button-container">
                         <!-- Buttons for adding, deleting -->
+                        <div><button class="button-structural" id="del-1">-</button></div>
+                        <div><button class="button-structural" id="add-1">+</button></div>
                     </div>
-                    <div class="caption-container">
-                        <!-- Holds the meme caption -->
-                        <textarea class="caption" name="caption1" id="caption1"></textarea>
-                    </div>
-                    <div class="galaxy-image galaxy17">
-                        <!-- Just the image I guess lol -->
+                    <div class="button-container">
+                        <!-- Buttons for adding, deleting -->
+                        <div><button class="button-structural" id="del-2">-</button></div>
+                        <div><button class="button-structural" id="add-2">+</button></div>
                     </div>
                 </div>
+
+                <!-- Holds the individual meme panels -->
+                <div id="meme">
+                    <div class="galaxy-panel">
+                        <div class="caption-container aspect-container">
+                            <!-- Holds the meme caption -->
+                            <textarea class="caption aspect-child" name="caption1" id="caption1"></textarea>
+                        </div>
+                        <div class="galaxy-image galaxy17 aspect-container">
+                            <!-- Just the image I guess lol -->
+                        </div>
+                    </div>
+                    <div class="galaxy-panel">
+                        <div class="caption-container aspect-container">
+                            <!-- Holds the meme caption -->
+                            <textarea class="caption aspect-child" name="caption1" id="caption1"></textarea>
+                        </div>
+                        <div class="galaxy-image galaxy17 aspect-container">
+                            <!-- Just the image I guess lol -->
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             
