@@ -177,13 +177,14 @@ body {
     /* margin-top: -1.6rem; */
 }
 
-.aspect-container {
+.galaxy-panel > div {
     width: 100%; 
     padding-top: 57.25%;
     position: relative;
 }
 
-.aspect-child {
+/* Trying to reduce the number of classes a bit */
+.galaxy-panel textarea {
     position: absolute; 
     top: 0; 
     left: 0; 
