@@ -73,8 +73,8 @@ body {
 
 
 #meme-parent {
-    display: grid;
-    grid-template-columns: 1fr 5fr;
+    display: flex;
+    margin-top: 2rem;
 }
 
 
@@ -85,6 +85,10 @@ body {
 
     min-width: 20rem;
     overflow-x: scroll;
+
+    float: left;
+
+    flex-grow: 1;
 }
 
 
@@ -100,6 +104,7 @@ body {
 #control-container {
     display: flex;
     flex-direction: column;
+    float: left;
 }
 
 .button-structural {
@@ -134,18 +139,21 @@ body {
     flex-grow: 1;
     text-align: left;
     padding-right: 0.5rem;
+    position: relative;
 }
 
 .button-container div {
     flex-grow: 1;
+    vertical-align: middle;
 }
 
 .button-container div:first-child {
-    
+
 }
 
 .button-container div:nth-child(2) {
-    
+    position: absolute;
+    bottom: 0.2rem;
 }
 
 .button-structural[id^=del] {
