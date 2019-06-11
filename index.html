@@ -8,73 +8,78 @@
     <link rel="stylesheet" href="./style.css">
 
 </head>
-<body class="page">
-    <div id="header-container">
-        <div class="header">
-            <h1>GALAXY BRAIN</h1>
-        </div>
-        <div id="export-container">
-            <button id="submit-download">Download</button>
-        </div>
-    </div>
-    <div id="main-content">
+<body>
 
+    <div class="page">
 
-        <div id="generator-container">
-
-            <div>
-                <button class="button-structural" id="add-0" onclick="addPanel(0)">+</button>
+        <div id="header-container">
+            <div class="header">
+                <h1>GALAXY BRAIN</h1>
             </div>
+            <div id="export-container">
+                <button id="submit-download">Download</button>
+            </div>
+        </div>
+        <div id="main-content">
 
-            <div id="meme-parent">
-                <!-- Holds the buttons for adding/removing meme panels -->
-                <div id="control-container">
-                    <div class="button-container">
-                        <!-- Buttons for adding, deleting -->
-                        <div><button class="button-structural" id="del-1">-</button></div>
-                        <div><button class="button-structural" id="add-1">+</button></div>
-                    </div>
-                    <div class="button-container">
-                        <!-- Buttons for adding, deleting -->
-                        <div><button class="button-structural" id="del-2">-</button></div>
-                        <div><button class="button-structural" id="add-2">+</button></div>
-                    </div>
+            <div id="generator-container">
+
+                <div>
+                    <button class="button-structural" id="add-0" onclick="addPanel(0)">+</button>
                 </div>
 
-                <!-- Holds the individual meme panels -->
-                <div id="meme">
-                    <div class="galaxy-panel">
-                        <div class="caption-container">
-                            <!-- Holds the meme caption -->
-                            <textarea class="caption" name="caption1" id="caption1"></textarea>
+                <div id="meme-parent">
+                    <!-- Holds the buttons for adding/removing meme panels -->
+                    <div id="control-container">
+                        <div class="button-container">
+                            <!-- Buttons for adding, deleting -->
+                            <div><button class="button-structural" id="del-1">-</button></div>
+                            <div><button class="button-structural" id="add-1">+</button></div>
                         </div>
-                        <div class="galaxy-image galaxy17" id="image1">
-                            <!-- Just the image I guess lol -->
-                        </div>
-                    </div>
-                    <div class="galaxy-panel">
-                        <div class="caption-container">
-                            <!-- Holds the meme caption -->
-                            <textarea class="caption" name="caption2" id="caption2"></textarea>
-                        </div>
-                        <div class="galaxy-image galaxy17" id="image2">
-                            <!-- Just the image I guess lol -->
+                        <div class="button-container">
+                            <!-- Buttons for adding, deleting -->
+                            <div><button class="button-structural" id="del-2">-</button></div>
+                            <div><button class="button-structural" id="add-2">+</button></div>
                         </div>
                     </div>
+
+                    <!-- Holds the individual meme panels -->
+                    <div id="meme">
+                        <div class="galaxy-panel">
+                            <div class="caption-container">
+                                <!-- Holds the meme caption -->
+                                <textarea class="caption" name="caption1" id="caption1"></textarea>
+                            </div>
+                            <div class="galaxy-image galaxy17" id="image1">
+                                <!-- Just the image I guess lol -->
+                            </div>
+                        </div>
+                        <div class="galaxy-panel">
+                            <div class="caption-container">
+                                <!-- Holds the meme caption -->
+                                <textarea class="caption" name="caption2" id="caption2"></textarea>
+                            </div>
+                            <div class="galaxy-image galaxy17" id="image2">
+                                <!-- Just the image I guess lol -->
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-
             </div>
-
-            
-
         </div>
 
+        <div class="footer">
+            <p>Github or something</p>
+        </div>
     </div>
 
-    <div class="footer">
-        <p>Github or something</p>
+    <!-- I guess let's try to do a modal here? -->
+    <div class="modal-container hidden" id="modal-container" onClick="closeModal()">
+        <div class="modal" id="modal-image-select">
+        </div>
     </div>
-    <div id="temp"></div>
+    
 </body>
 
 <script src="./script.js"></script>

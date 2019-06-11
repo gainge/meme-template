@@ -114,6 +114,36 @@ function deletePanel(position) {
 
 
 // Helper Methods
+function uuid() {
+  return Math.floor(Math.random() * 0xFFFF);
+}
+
+function showModal(targetImageID) {
+  // I could pass in a callback, maybe?
+  // yeah, we could do something like that
+  console.log("showing modal from: " + targetImageID);
+
+  // Show the container
+  var modalContainer = document.getElementById("modal-container");
+  modalContainer.classList.toggle("hidden", false);
+
+  var modalBody = document.getElementById("modal-image-select");
+
+  // Establish the callback here?
+  // Lowkey I could store which image is selected in the dom, as a class or something
+  //    That feels kind of ghetto to my cs bones, but it might be worth
+  // I could also set up this "selected" image class thing or w/e from the passed ID, that way the modal already has a pre-selected image...
+  //    Hmm... all very interesting
+}
+
+function closeModal() {
+  console.log("Closing Modal1");
+  
+  var modal = document.getElementById("modal-container");
+  modal.classList.toggle("hidden", true);
+}
+
+
 function addChildAtPosition(newChild, position, parentID) {
   var parent = document.getElementById(parentID);
 
@@ -139,6 +169,9 @@ function createMemePanel(index) {
   // Create the image div, pretty simple
   var image = document.createElement("div");
   image.classList.add(GALAXY_IMAGE);
+  var imageID = "image" + uuid();
+  image.id = imageID;
+  image.onclick = () => {showModal(imageID);};
 
   // Make the image dynamic based on the position
   var imageNum = (index < MAX_IMAGE_NUM) ? index + 1 : MAX_IMAGE_NUM;

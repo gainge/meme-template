@@ -1,9 +1,7 @@
 
 /* General Rules */
 body {
-    padding: 0rem 9rem 1rem 9rem;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
 }
 
 .page {
@@ -11,6 +9,8 @@ body {
     min-height: 100vh;
     flex-direction: column;
     margin-top: 0;
+
+    padding: 0rem 9rem 1rem 9rem;
 }
 
 /* Header */
@@ -78,7 +78,6 @@ body {
 
 
 #meme {
-    border: solid 0.15rem black;
     border-left: none;
     border-right: none;
 
@@ -88,6 +87,14 @@ body {
     float: left;
 
     flex-grow: 1;
+}
+
+/* Idk about this tbh */
+#meme > div:first-child {
+    border-top: solid 0.3rem black;
+}
+#meme > div:last-child {
+    border-bottom: solid 0.3rem black;
 }
 
 
@@ -224,7 +231,10 @@ body {
 .galaxy3 {background-image: url("./res/minds/galaxy3.jpg");}
 .galaxy4 {background-image: url("./res/minds/galaxy4.jpg");}
 .galaxy5 {background-image: url("./res/minds/galaxy5.jpg");}
-.galaxy6 {background-image: url("./res/minds/galaxy6.jpg");}
+.galaxy6 {
+    background-image: url("./res/minds/galaxy6.jpg");
+    background-size: 105%;
+}
 .galaxy7 {background-image: url("./res/minds/galaxy7.jpg");}
 .galaxy8 {background-image: url("./res/minds/galaxy8.jpg");}
 .galaxy9 {background-image: url("./res/minds/galaxy9.jpg");}
@@ -247,4 +257,46 @@ body {
     border-top: 1px solid #ccc;
     text-align: center;
 }
+
+
+
+/* Modal Stuff */
+.modal-container {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+    background: rgba(40, 40, 40, 0.4);
+
+    z-index: 170;
+}
+
+.modal {
+    height: 25rem;
+    width: 50rem;
+    background: rgb(235, 235, 235);
+
+    border-radius: 1rem;
+
+    box-shadow: #555 0.1rem 0.1rem 0.5rem;
+
+    position: fixed;
+
+    top: 12rem;
+    left: 0;
+    right: 0;
+    
+    margin-left: auto;
+    margin-right: auto;
+
+    z-index: 200;
+}
+
+.hidden {
+    display: none;
+}
+
 
