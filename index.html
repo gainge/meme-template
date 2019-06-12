@@ -17,7 +17,7 @@
                 <h1>GALAXY BRAIN</h1>
             </div>
             <div id="export-container">
-                <button id="submit-download">Download</button>
+                <button class="standard-button" id="submit-download">Download</button>
             </div>
         </div>
         <div id="main-content">
@@ -76,7 +76,14 @@
 
     <!-- I guess let's try to do a modal here? -->
     <div class="modal-container hidden" id="modal-container" onClick="closeModal()">
-        <div class="modal" id="modal-image-select">
+        <div class="modal" id="modal-image-select" onClick="event.stopPropagation();">
+            <div id="image-container">
+
+            </div>
+            <div id="modal-submit-container">
+                <div id="close-container"><button class="standard-button" id="submit-close-modal" onClick="closeModal()">Close</button></div>
+                <div><button class="standard-button" id="submit-modal">Update</button></div>
+            </div>
         </div>
     </div>
     

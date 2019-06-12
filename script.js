@@ -49,6 +49,12 @@ document.getElementById("control-container").innerHTML = "";
 document.getElementById("meme").innerHTML = "";
 
 
+initModal();
+
+
+
+
+
 
 /* Component Add/Delete Handlers */
 function addPanel(position) {
@@ -116,6 +122,44 @@ function deletePanel(position) {
 // Helper Methods
 function uuid() {
   return Math.floor(Math.random() * 0xFFFF);
+}
+
+function initModal() {
+  var imageContainer = document.getElementById("image-container");
+
+
+  // Fill the modal up with images
+  for (var i = 1; i <= MAX_IMAGE_NUM; i++) {
+    var img = document.createElement("div");
+    img.classList.add(GALAXY_IMAGE);
+    img.classList.add("modal-image");
+    img.classList.add(IMAGE_CLASS_PREFIX + i);
+
+    let id = getModalImageID(i);
+
+    img.id = id
+
+    img.onclick = () => {selectModalImage(id)};
+
+    // Add the image to the modal body
+    imageContainer.appendChild(img);
+  }
+}
+
+function getModalImageID(idNum) {
+  return "modal-image-" + idNum;
+}
+
+function selectModalImage(imageID) {  
+  // Remove selected from all
+  var children = document.getElementById("image-container").children;
+  for (var i = 0; i < children.length; i++) {
+    var child = children[i];
+    child.classList.toggle("selected", false);
+  }
+
+  // Mark the current one as selected
+  document.getElementById(imageID).classList.toggle("selected", true);  
 }
 
 function showModal(targetImageID) {
