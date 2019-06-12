@@ -79,6 +79,8 @@ function addPanel(position) {
 
   // Then uhhhh idk
   // p sure we're done at this point
+  // Actually lets animate something
+  animateFade(buttonPanel);
 }
 
 
@@ -103,6 +105,23 @@ function deletePanel(position) {
   memeParent.removeChild(nthChild);
 }
 
+function downloadMeme() {
+  var meme = document.getElementById("meme");
+
+  if (!meme.children.length) {
+    alert("Please add some panels to your meme");
+    return;
+  }
+
+  // Otherwise we can use the library?
+  html2canvas(meme, {
+    windowHeight: meme.offsetHeight
+  }).then((canvasElm) => {
+    // Todo replace with download
+    document.body.appendChild(canvasElm);
+  });
+}
+
 
 
 
@@ -122,6 +141,18 @@ function deletePanel(position) {
 // Helper Methods
 function uuid() {
   return Math.floor(Math.random() * 0xFFFF);
+}
+
+function animateFade(el, delay = 600) {
+  // Start at full opacity
+  el.style.opacity = 1;
+  console.log(el);
+  
+
+  setTimeout(() => {
+    el.style.opacity = 0; // Transition prop should take care of the speed by itself
+    el.style.opacity = "";
+  }, delay);
 }
 
 function initModal() {

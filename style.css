@@ -2,11 +2,11 @@
 /* General Rules */
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 0;
 }
 
 .page {
     display: flex;
-    min-height: 100vh;
     flex-direction: column;
     margin-top: 0;
 
@@ -107,7 +107,7 @@ body {
     grid-template-columns: 1fr;
 
     padding: 1rem 4rem 2rem 4rem;
-    min-height: 22rem;
+    min-height: 18.85rem;
 }
 
 #control-container {
@@ -149,6 +149,13 @@ body {
     text-align: left;
     padding-right: 0.5rem;
     position: relative;
+
+    transition: opacity 0.3s;
+    opacity: 0;
+}
+
+.button-container:hover {
+    opacity: 1;
 }
 
 .button-container div {
@@ -219,9 +226,7 @@ body {
 }
 
 
-.galaxy-image {
-    background: #ff00ff;
-    
+.galaxy-image {    
     background-repeat: no-repeat;
     background-position-x: center;
     background-size: 100%;
