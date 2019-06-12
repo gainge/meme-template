@@ -166,6 +166,12 @@ function showModal(targetImageID) {
   // I could pass in a callback, maybe?
   // yeah, we could do something like that
   console.log("showing modal from: " + targetImageID);
+  var selectedImageNum = document.getElementById(targetImageID).classList[1]; // Kind of ghetto
+  selectedImageNum = selectedImageNum.substring(6);
+
+  // Select the correct image
+  selectModalImage(getModalImageID(selectedImageNum));
+  
 
   // Show the container
   var modalContainer = document.getElementById("modal-container");
@@ -178,6 +184,41 @@ function showModal(targetImageID) {
   //    That feels kind of ghetto to my cs bones, but it might be worth
   // I could also set up this "selected" image class thing or w/e from the passed ID, that way the modal already has a pre-selected image...
   //    Hmm... all very interesting
+
+  // Let's do it lul
+  var submitUpdateButton = document.getElementById("submit-modal");
+  submitUpdateButton.onclick = () => submitImageUpdate(targetImageID);
+
+}
+
+function submitImageUpdate(targetImageID) {
+  // Determine which image ended up as selected, if any
+  let selectedImageNum = 0;
+
+  var modalImages = document.getElementById("image-container").children;
+  for (var i = 0; i < modalImages.length; i++) {
+    var modalImage = modalImages[i];
+
+    if (modalImage.classList.contains("selected")) {
+      selectedImageNum = i + 1;
+    }
+  }
+
+  if (selectedImageNum) {
+    // Remove existing image class
+    // selectedImageNum
+    var targetImage = document.getElementById(targetImageID);
+
+    targetImage.className = "";
+
+    // Add back the image classname and our selected image num
+    targetImage.classList.add(GALAXY_IMAGE);
+    targetImage.classList.add(IMAGE_CLASS_PREFIX + selectedImageNum);
+  }
+
+  // finally, close the modal
+  closeModal();
+
 }
 
 function closeModal() {
