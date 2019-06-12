@@ -32,14 +32,23 @@ function isScrolling(el) {
   return el.scrollHeight > el.clientHeight;
 }
 
+function getPaddingTop(el) {
+  let padPX = window.getComputedStyle(el, null).getPropertyValue('padding-top');
+  return parseInt(padPX);
+}
+
+function isLargerThanRef(el, ref) {
+  return el.offsetHeight > (getPaddingTop(ref) + 1.1);
+}
+
 // Better method of regulating font size where we don't 
 //    have to acces the element every time
-function fontAdjustmentCurry(el) {
+function fontAdjustmentCurry(el, ref) {
   return () => {
-    if (isScrolling(el)) {
-      removeScrolling(el);
+    if (isLargerThanRef(el, ref)) {
+      removeScrolling(el, ref);
     } else {
-      tryFontGrowth(el);
+      tryFontGrowth(el, ref);
     }
   }
 }
@@ -115,10 +124,13 @@ function downloadMeme() {
 
   // Otherwise we can use the library?
   html2canvas(meme, {
-    windowHeight: meme.offsetHeight
+    windowHeight: document.body.offsetHeight
   }).then((canvasElm) => {
-    // Todo replace with download
-    document.body.appendChild(canvasElm);
+
+    // Let's try out this other library, then
+    Canvas2Image.saveAsPNG(canvasElm, 
+                           canvasElm.width, 
+                           canvasElm.height);
   });
 }
 
@@ -145,9 +157,7 @@ function uuid() {
 
 function animateFade(el, delay = 600) {
   // Start at full opacity
-  el.style.opacity = 1;
-  console.log(el);
-  
+  el.style.opacity = 1;  
 
   setTimeout(() => {
     el.style.opacity = 0; // Transition prop should take care of the speed by itself
@@ -196,7 +206,6 @@ function selectModalImage(imageID) {
 function showModal(targetImageID) {
   // I could pass in a callback, maybe?
   // yeah, we could do something like that
-  console.log("showing modal from: " + targetImageID);
   var selectedImageNum = document.getElementById(targetImageID).classList[1]; // Kind of ghetto
   selectedImageNum = selectedImageNum.substring(6);
 
@@ -252,9 +261,7 @@ function submitImageUpdate(targetImageID) {
 
 }
 
-function closeModal() {
-  console.log("Closing Modal1");
-  
+function closeModal() {  
   var modal = document.getElementById("modal-container");
   modal.classList.toggle("hidden", true);
 }
@@ -276,22 +283,22 @@ function addChildAtPosition(newChild, position, parentID) {
 
 
 function createMemePanel(index) {
-  var container = document.createElement("div");
+  let container = document.createElement("div");
   container.classList.add(GALAXY_PANEL);
 
-  // Create the textarea section, fontsize fixes and all
-  var captionContainer = createCaptionContainer();
-
   // Create the image div, pretty simple
-  var image = document.createElement("div");
+  let image = document.createElement("div");
   image.classList.add(GALAXY_IMAGE);
-  var imageID = "image" + uuid();
+  let imageID = "image" + uuid();
   image.id = imageID;
   image.onclick = () => {showModal(imageID);};
 
   // Make the image dynamic based on the position
   var imageNum = (index < MAX_IMAGE_NUM) ? index + 1 : MAX_IMAGE_NUM;
   image.classList.add(IMAGE_CLASS_PREFIX + imageNum);
+
+  // Create the textarea section, fontsize fixes and all
+  var captionContainer = createCaptionContainer(image);
 
   // Add the caption and image to our container
   container.appendChild(captionContainer);
@@ -301,16 +308,19 @@ function createMemePanel(index) {
 }
 
 
-function createCaptionContainer() {
-  var container = document.createElement("div");
+function createCaptionContainer(refImage) {
+  let container = document.createElement("div");
   container.classList.add(CAPTION_CONTAINER);
 
-  var captionBody = document.createElement("textarea");
+  let captionBody = document.createElement("div");
   captionBody.classList.add(CAPTION);
+
+  // Ok, I'm going to try to make this work with just the parent
+  captionBody.contentEditable = true;
 
   // Set up the font adjustment
   captionBody.style.fontSize = DEFAULT_FONT_SIZE;
-  captionBody.oninput = fontAdjustmentCurry(captionBody);
+  captionBody.oninput = fontAdjustmentCurry(captionBody, refImage);
 
   container.appendChild(captionBody);
 
@@ -369,7 +379,7 @@ function getFontSizeInt(el) {
 }
 
 
-function tryFontGrowth(el) {
+function tryFontGrowth(el, ref) {
   if (el.style.fontSize === DEFAULT_FONT_SIZE) return;
 
   var fontSize = getFontSizeInt(el);
@@ -380,7 +390,7 @@ function tryFontGrowth(el) {
     fontSize++;
     el.style.fontSize = fontSize + "px";
 
-    if (isScrolling(el)) {
+    if (isLargerThanRef(el, ref)) {
       fontSize--;
       el.style.fontSize = fontSize + "px";
       break;
@@ -389,10 +399,10 @@ function tryFontGrowth(el) {
 }
 
 
-function removeScrolling(el) {
+function removeScrolling(el, ref) {
   var fontSize = getFontSizeInt(el);
 
-  while (isScrolling(el) && fontSize > 1) {
+  while (isLargerThanRef(el, ref) && fontSize > 1) {
     fontSize--;
     el.style.fontSize = fontSize + "px";
   }
